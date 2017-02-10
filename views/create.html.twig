@@ -4,9 +4,7 @@
         <title>Create</title>
     </head>
     <body>
-        {% for new_contact as contact %}
-            <h2>You created a new contact: contact.get(name), contact.get(number), contact.get(address) </h2>
-        {% endfor %}
+            <h2>You created a new contact: {{new_contact.get('name')}}, {{new_contact.get('number')}}, {{new_contact.get('address')}} </h2>
         <form action="/home" method="post">
             <button type="submit" name="button">See all your contacts</button>
         </form>

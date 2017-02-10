@@ -19,13 +19,17 @@
         return $app['twig']->render('index.html.twig', array('contacts' => Contact::getAll()));
     });
 
-    $app->get('/create', function() use ($app) {
-        $new_contact = new Contact($_POST['name'], $_POST['name'], $_POST['name']);
+    $app->post('/create', function() use ($app) {
+        $new_contact = new Contact($_POST['name'], $_POST['number'], $_POST['address']);
         $new_contact->save();
-        return $app['twig']->render('create.html.twig', array('new_contact' => $new_contact);
+        return $app['twig']->render('create.html.twig', array('new_contact' => $new_contact));
     });
 
-    $app->get('/fresh', function() use ($app) {
+    $app->post('/home', function() use ($app) {
+        return $app['twig']->render('index.html.twig', array('contacts' => Contact::getAll()));
+    });
+
+    $app->post('/fresh', function() use ($app) {
         Contact::delete();
         return $app['twig']->render('index.html.twig', array('contacts' => Contact::getAll()));
     });

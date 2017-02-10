@@ -3,13 +3,13 @@
     class Contact
     {
         private $name;
-        private $phone_number;
+        private $number;
         private $address;
 
-        function __construct($name, $phone_number, $address)
+        function __construct($name, $number, $address)
         {
             $this->name = $name;
-            $this->phone_number = $phone_number;
+            $this->number = $number;
             $this->address = $address;
         }
 

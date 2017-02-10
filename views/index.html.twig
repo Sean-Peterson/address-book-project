@@ -5,11 +5,17 @@
     </head>
     <body>
         <h1>Contacts:</h1>
-        {% for contacts as contact %}
-            <p>contact.get(name)</p>
-            <li>contact.get(number)</li>
-            <li>contact.get(address)</li>
-        {% endfor %}
+        {% if contacts is not empty %}
+            {% for contact in contacts %}
+                <p>{{contact.get('name')}}</p>
+                <li>{{contact.get('number')}}</li>
+                <li>{{contact.get('address')}}</li>
+            {% endfor %}
+        {% endif %}
+        <br>
+        <br>
+        <br>
+        <br>
         <form action="/create" method="post">
             <label for="new_contact">Enter new contact here</label>
             <input type="text" name="name" placeholder="Name">
