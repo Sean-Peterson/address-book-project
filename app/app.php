@@ -31,7 +31,11 @@
 
     $app->post('/fresh', function() use ($app) {
         Contact::delete();
-        return $app['twig']->render('index.html.twig', array('contacts' => Contact::getAll()));
+        return $app['twig']->render('fresh.html.twig');
+    });
+
+    $app->post('/start_fresh', function() use ($app) {
+        return $app['twig']->render('index.html.twig');
     });
 
     return $app;
