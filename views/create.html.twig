@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create</title>
+    </head>
+    <body>
+        {% for new_contact as contact %}
+            <h2>You created a new contact: contact.get(name), contact.get(number), contact.get(address) </h2>
+        {% endfor %}
+        <form action="/home" method="post">
+            <button type="submit" name="button">See all your contacts</button>
+        </form>
+    </body>
+</html>

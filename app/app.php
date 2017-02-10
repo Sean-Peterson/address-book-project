@@ -5,8 +5,8 @@
 
     session_start();
 
-    if (empty($_SESSION['list_of_headphones'])) {
-        $_SESSION['list_of_headphones'] = array();
+    if (empty($_SESSION['contact_array'])) {
+        $_SESSION['contact_array'] = array();
     }
 
     $app = new Silex\Application();
@@ -16,7 +16,18 @@
     ));
 
     $app->get('/', function() use ($app) {
-        return $app['twig']->render('headphones.html.twig', array('headphones' => Headphones::getAll()));
+        return $app['twig']->render('index.html.twig', array('contacts' => Contact::getAll()));
+    });
+
+    $app->get('/create', function() use ($app) {
+        $new_contact = new Contact($_POST['name'], $_POST['name'], $_POST['name']);
+        $new_contact->save();
+        return $app['twig']->render('create.html.twig', array('new_contact' => $new_contact);
+    });
+
+    $app->get('/fresh', function() use ($app) {
+        Contact::delete();
+        return $app['twig']->render('index.html.twig', array('contacts' => Contact::getAll()));
     });
 
     return $app;

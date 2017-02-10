@@ -1,6 +1,6 @@
 <?php
 
-    class contact
+    class Contact
     {
         private $name;
         private $phone_number;

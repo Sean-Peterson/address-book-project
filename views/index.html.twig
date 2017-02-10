@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1>Contacts:</h1>
+        {% for contacts as contact %}
+            <p>contact.get(name)</p>
+            <li>contact.get(number)</li>
+            <li>contact.get(address)</li>
+        {% endfor %}
+        <form action="/create" method="post">
+            <label for="new_contact">Enter new contact here</label>
+            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="number" placeholder="Phone Number">
+            <input type="text" name="address" placeholder="Address">
+            <button type="submit" class="btn">Add new contact</button>
+        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+        <form action="/fresh" method="post">
+            <button type="submit" name="button">Remove all contacts</button>
+        </form>
+    </body>
+</html>
